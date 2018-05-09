@@ -1,0 +1,155 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.buildingsBar {
+  display: flex;
+  justify-content: space-around;
+  width: 90vw;
+  font-size: 20px;
+  border: 5px  inset  #6289a0;
+  box-shadow: 7px 7px 7px grey;
+  padding: 5px 0 5px 0;
+  margin-top: 10px;
+  flex-flow: wrap;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+body {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  width: 100vw;
+  background: url("../images/vintage-concrete.png");
+}
+#root {
+  width: 90vw;
+  margin: 1px;
+}
+.resources {
+  border-radius: 15px;
+  border: 2px solid brown;
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0 20px 0;
+  width: 60vw;
+  padding: 5px;
+  flex-flow: wrap;
+}
+.resourcesContainer {
+  display: flex;
+  justify-content: center;
+}
+.buildingsInfo {
+  border: 1px solid pink;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.buildingsInfo h1 {
+  padding-top: 5px;
+  justify-content: center;
+  text-align: center;
+}
+.buildingsInfo p, .buildingsInfo div {
+  padding: 10px 0 5px 0;
+  margin: 0 10%;
+  text-align: center;
+  justify-content: center;
+}
+table {
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid black;
+  padding: 5px;
+}
+.logo {
+  font-size: 60px;
+  color: #fefefe;
+  text-transform: uppercase;
+  letter-spacing: -4px;
+}
+.logo span {
+  position: relative;
+}
+.logo span:before,
+.logo span:after {
+  content: '';
+  position: absolute;
+  border-width: 16px;
+  border-style: solid;
+  border-color: transparent;
+  height: 0;
+  z-index: 10;
+}
+.logo .word1 {
+  background: url("../images/react-logo-1000-transparent.png") no-repeat center;
+  background-size: 100px 100px;
+  padding: 10px;
+  color: #dc0900;
+  margin-right: -30px;
+  transform: rotateY(180deg);
+  display: inline-block;
+  z-index: 10;
+}
+.logo .word1:before {
+  right: 0;
+  top: 12px;
+  border-top-color: #e7dabe;
+  border-right-color: #e7dabe;
+}
+.logo .word1:after {
+  left: 14px;
+  bottom: 17px;
+  border-bottom-color: #e7dabe;
+  border-left-color: #e7dabe;
+}
+.logo .word2 {
+  top:18px;
+  color: black;
+  z-index: 0;
+}
+.logo .word2:before {
+  left: -7px;
+  top: 3px;
+  border-top-color: #e7dabe;
+  border-left-color: #e7dabe;
+}
+.gameName {
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+.resourcesPage {
+  padding: 1px;
+}
+.tutorial {
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px black;
+  height: 504px;
+  background: url("../images/1920_0003.jpg") no-repeat center/cover;
+  margin: 10px 0 10px 0;
+  border: 2px solid brown;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+.tutorial div:first-child{
+  padding-top: 140px;
+}
+.tutorial div {
+  justify-content: center;
+  width: 30vw;
+  text-align: center;
+  margin: 10px 0 10px 0;
+}
