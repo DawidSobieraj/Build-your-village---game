@@ -5,3 +5,4 @@ new and upgrade already existing buildings. Take care of the economy, which is v
 important to fast growing settlement.
 
 Only in PL language.
+Minimal device width: 360px.
