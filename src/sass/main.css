@@ -16,7 +16,8 @@
 
 a {
   text-decoration: none;
-  color: black; }
+  color: black;
+  margin: 0 5px 0 5px; }
 
 body {
   display: flex;
@@ -44,7 +45,7 @@ body {
   justify-content: center; }
 
 .buildingsInfo {
-  border: 1px solid pink;
+  border: 2px solid brown;
   margin: 10px;
   display: flex;
   flex-direction: column; }
@@ -71,65 +72,59 @@ th, td {
   border: 1px solid black;
   padding: 5px; }
 
-.logo {
-  font-size: 60px;
-  color: #fefefe;
-  text-transform: uppercase;
-  letter-spacing: -4px; }
-
-.logo span {
-  position: relative; }
-
-.logo span:before,
-.logo span:after {
-  content: '';
-  position: absolute;
-  border-width: 16px;
-  border-style: solid;
-  border-color: transparent;
-  height: 0;
-  z-index: 10; }
-
-.logo .word1 {
-  background: url("../images/react-logo-1000-transparent.png") no-repeat center;
-  background-size: 100px 100px;
-  padding: 10px;
-  color: #dc0900;
-  margin-right: -30px;
-  transform: rotateY(180deg);
-  display: inline-block;
-  z-index: 10; }
-
-.logo .word1:before {
-  right: 0;
-  top: 12px;
-  border-top-color: #e7dabe;
-  border-right-color: #e7dabe; }
-
-.logo .word1:after {
-  left: 14px;
-  bottom: 17px;
-  border-bottom-color: #e7dabe;
-  border-left-color: #e7dabe; }
-
-.logo .word2 {
-  top: 18px;
-  color: black;
-  z-index: 0; }
-
-.logo .word2:before {
-  left: -7px;
-  top: 3px;
-  border-top-color: #e7dabe;
-  border-left-color: #e7dabe; }
-
-.gameName {
-  height: 100px;
-  display: flex;
-  justify-content: center; }
+@media (min-width: 818px) {
+  .logo {
+    font-size: 60px;
+    color: #fefefe;
+    text-transform: uppercase;
+    letter-spacing: -4px; }
+  .logo span {
+    position: relative; }
+  .logo span:before,
+  .logo span:after {
+    content: '';
+    position: absolute;
+    border-width: 16px;
+    border-style: solid;
+    border-color: transparent;
+    height: 0;
+    z-index: 10; }
+  .logo .word1 {
+    background: url("../images/react-logo-1000-transparent.png") no-repeat center;
+    background-size: 100px 100px;
+    padding: 10px;
+    color: #dc0900;
+    margin-right: -30px;
+    transform: rotateY(180deg);
+    display: inline-block;
+    z-index: 10; }
+  .logo .word1:before {
+    right: 0;
+    top: 12px;
+    border-top-color: #e7dabe;
+    border-right-color: #e7dabe; }
+  .logo .word1:after {
+    left: 15px;
+    bottom: 22px;
+    border-bottom-color: #e7dabe;
+    border-left-color: #e7dabe; }
+  .logo .word2 {
+    top: 18px;
+    color: black;
+    z-index: 0; }
+  .logo .word2:before {
+    left: -7px;
+    top: 3px;
+    border-top-color: #e7dabe;
+    border-left-color: #e7dabe; }
+  .gameName {
+    height: 100px;
+    display: flex;
+    justify-content: center; } }
 
 .resourcesPage {
-  padding: 1px; }
+  padding: 1px;
+  margin: 0 5px 0 5px; }
 
 .tutorial {
   font-size: 18px;
@@ -149,6 +144,75 @@ th, td {
 
 .tutorial div {
   justify-content: center;
-  width: 30vw;
+  width: 40vw;
   text-align: center;
   margin: 10px 0 10px 0; }
+
+@media (max-width: 818px) {
+  .logo {
+    font-size: 30px;
+    color: #fefefe;
+    text-transform: uppercase;
+    letter-spacing: -4px; }
+  .logo span {
+    position: relative; }
+  .logo span:before,
+  .logo span:after {
+    content: '';
+    position: absolute;
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent;
+    height: 0;
+    z-index: 10; }
+  .logo .word1 {
+    background: url("../images/react-logo-1000-transparent.png") no-repeat center;
+    background-size: 50px 50px;
+    padding: 10px;
+    color: #dc0900;
+    margin-right: -30px;
+    transform: rotateY(180deg);
+    display: inline-block;
+    z-index: 10; }
+  .logo .word1:before {
+    right: 6px;
+    top: 12px;
+    border-top-color: #e7dabe;
+    border-right-color: #e7dabe; }
+  .logo .word1:after {
+    left: 11px;
+    bottom: 16px;
+    border-bottom-color: #e7dabe;
+    border-left-color: #e7dabe; }
+  .logo .word2 {
+    top: 25px;
+    color: black;
+    z-index: 0; }
+  .logo .word2:before {
+    left: -4px;
+    top: 7px;
+    border-top-color: #e7dabe;
+    border-left-color: #e7dabe; }
+  .gameName {
+    height: 70px;
+    display: flex;
+    justify-content: center; }
+  .resources {
+    display: flex;
+    justify-content: space-around;
+    width: 60vw;
+    flex-flow: wrap;
+    text-align: center; }
+  .tutorial {
+    font-size: 16px; }
+  .tutorial div:first-child {
+    padding-top: 130px; }
+  .tutorial div {
+    width: 38vw; } }
+
+@media (max-width: 356px) {
+  body {
+    display: none; } }
+
+.footer {
+  font-size: 12px; }

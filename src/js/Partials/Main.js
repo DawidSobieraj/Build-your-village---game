@@ -2,7 +2,6 @@ import React from "react";
 import {
     HashRouter,
     Route,
-    Link,
     Switch,
     NavLink
 } from 'react-router-dom';
@@ -11,8 +10,6 @@ class Main extends React.Component{
         return <NavigationPanel/>
     }
 }
-
-let storage = JSON.parse(localStorage.getItem("data"));
 
 class NavigationPanel extends React.Component {
     constructor(props) {
@@ -60,7 +57,7 @@ class NavigationPanel extends React.Component {
                 levelPalac: 0,
                 drewnoPalac: 400000,
                 glinaPalac: 400000,
-                zelazoPalac: 400000,
+                zelazoPalac: 400000
             }
         } else {
             this.state = {
@@ -104,7 +101,7 @@ class NavigationPanel extends React.Component {
                 levelPalac: storage.levelPalac,
                 drewnoPalac: storage.resourcesPalacdrewno,
                 glinaPalac: storage.resourcesPalacglina,
-                zelazoPalac: storage.resourcesPalaczelazo,
+                zelazoPalac: storage.resourcesPalaczelazo
             }
         }
     }
@@ -209,6 +206,13 @@ class NavigationPanel extends React.Component {
             levelPalac: levelPalac,
         })
     };
+    /*setResultResources = (resultDrewno, resultGlina, resultZelazo) => {
+        this.setState({
+            resultDrewno: resultDrewno,
+            resultGlina: resultGlina,
+            resultZelazo: resultZelazo
+        })
+    };*/
     render(){
         return(
             <HashRouter>
@@ -254,10 +258,14 @@ class NavigationPanel extends React.Component {
                                     resourcesPalac={[this.state.drewnoPalac,
                                                         this.state.glinaPalac,
                                                         this.state.zelazoPalac,
-                                                        this.state.levelPalac]}/>
+                                                        this.state.levelPalac]}
+                                    /*resourcesResult={[this.state.resultDrewno,
+                                                        this.state.resultGlina,
+                                                        this.state.resultZelazo]}*//>
                     <Switch>
                         <Route exact path="/" component={Tutorial}/>
-                        <Route path="/siedziba" render={ props => <Siedziba resourcesSiedziba={this.setSiedzibaResources} {...props} /> }/>
+                        <Route path="/siedziba" render={ props => <Siedziba resourcesSiedziba={this.setSiedzibaResources}
+                                                                            /*resourcesResult={this.setResultResources}*/ {...props} /> }/>
                         <Route path="/tartak" render={ props => <Tartak wood={this.setWydobycieDrewna}
                                                                         resourcesTartak={this.setTartakResources}
                                                                         levelTartak={this.setLevelTartak} {...props}/> }/>
@@ -340,9 +348,6 @@ class ResourcesPanel extends React.Component{
                 wydobycieGliny: storage.wydobycieGliny,
                 wydobycieZelaza: storage.wydobycieZelaza,
                 pojemnosc: storage.pojemnosc,
-                drewnoTartak: storage.drewnoTartak,
-                glinaTartak: storage.glinaTartak,
-                zelazoTartak: storage.zelazoTartak,
                 levelTartak: storage.levelTartak,
                 drewnoGlina: storage.drewnoGlina,
                 glinaGlina: storage.glinaGlina,
@@ -403,19 +408,19 @@ class ResourcesPanel extends React.Component{
                 resourcesPalacglina: this.props.resourcesPalac[1],
                 resourcesPalaczelazo: this.props.resourcesPalac[2]
             });
-            if (this.state.resultDrewno >= this.props.pojemnosc){
+            if (this.state.resultDrewno >= this.state.pojemnosc){
                 this.setState({
-                    resultDrewno: this.props.pojemnosc
+                    resultDrewno: this.state.pojemnosc
                 })
             }
-            if (this.state.resultGlina >= this.props.pojemnosc){
+            if (this.state.resultGlina >= this.state.pojemnosc){
                 this.setState({
-                    resultGlina: this.props.pojemnosc
+                    resultGlina: this.state.pojemnosc
                 })
             }
-            if (this.state.resultZelazo >= this.props.pojemnosc){
+            if (this.state.resultZelazo >= this.state.pojemnosc){
                 this.setState({
-                    resultZelazo: this.props.pojemnosc
+                    resultZelazo: this.state.pojemnosc
                 })
             }
             if (!(this.state.levelTartak  === this.props.levelTartak)){
@@ -521,9 +526,9 @@ class Siedziba extends React.Component{
                 glinaSiedziba: 40,
                 zelazoSiedziba: 20,
                 text: "Wybuduj",
-                resultDrewno: 500,
+                /*resultDrewno: 500,
                 resultGlina: 500,
-                resultZelazo: 500,
+                resultZelazo: 500,*/
             }
         } else {
             this.state = {
@@ -532,17 +537,18 @@ class Siedziba extends React.Component{
                 glinaSiedziba: storage.resourcesSiedzibaglina,
                 zelazoSiedziba: storage.resourcesSiedzibazelazo,
                 text: "Wybuduj",
-                resultDrewno: storage.resultDrewno,
+                /*resultDrewno: storage.resultDrewno,
                 resultGlina: storage.resultGlina,
-                resultZelazo: storage.resultZelazo,
+                resultZelazo: storage.resultZelazo,*/
             }
         }
     }
     componentDidMount(){
         this.props.resourcesSiedziba(this.state.drewnoSiedziba, this.state.glinaSiedziba, this.state.zelazoSiedziba, this.state.level)
+        /*this.props.resourcesResult(this.state.resultDrewno, this.state.resultGlina, this.state.resultZelazo)*/
     }
     handleInputChange = () => {
-        if ((this.state.level < 30) && (this.state.resultDrewno > this.state.drewnoSiedziba) && (this.state.resultGlina > this.state.glinaSiedziba) && (this.state.resultZelazo > this.state.zelazoSiedziba)){
+        if (this.state.level < 30) /*&& (this.state.resultDrewno > this.state.drewnoSiedziba) && (this.state.resultGlina > this.state.glinaSiedziba) && (this.state.resultZelazo > this.state.zelazoSiedziba))*/{
             this.setState({
                 level: this.state.level + 1,
                 drewnoSiedziba: Math.round(this.state.drewnoSiedziba + (this.state.drewnoSiedziba * 0.4)),
@@ -550,8 +556,9 @@ class Siedziba extends React.Component{
                 zelazoSiedziba: Math.round(this.state.zelazoSiedziba + (this.state.zelazoSiedziba * 0.4))
             }, ()=>{
                 this.props.resourcesSiedziba(this.state.drewnoSiedziba, this.state.glinaSiedziba, this.state.zelazoSiedziba, this.state.level)
+                /*this.props.resourcesResult(this.state.resultDrewno, this.state.resultGlina, this.state.resultZelazo)*/
             })
-        } else if ((this.state.level = 30) && (this.state.resultGlina > this.props.resourcesSiedziba[1]) && (this.state.resultZelazo > this.props.resourcesSiedziba[2])) {
+        } else if (this.state.level = 30) /*&& (this.state.resultDrewno > this.state.drewnoSiedziba) && (this.state.resultGlina > this.state.glinaSiedziba) && (this.state.resultZelazo > this.state.zelazoSiedziba))*/ {
             this.setState({
                 level: "Max",
                 drewnoSiedziba: "-",
@@ -1140,7 +1147,7 @@ class Palac extends React.Component{
                         <th>Akcja</th>
                     </tr>
                     <tr>
-                        <td>Siedziba</td>
+                        <td>Pałac</td>
                         <td>
                             {this.state.level}
                         </td>
